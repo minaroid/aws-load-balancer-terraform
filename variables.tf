@@ -13,7 +13,12 @@ variable "vpc_cidr_block" {
   default = "us-east-1"
 }
 
-variable "subnets_cidr_blocks" {
+variable "private_subnets_cidr_blocks" {
+  type    = list(string)
+  default = []
+}
+
+variable "public_subnets_cidr_blocks" {
   type    = list(string)
   default = []
 }
@@ -21,4 +26,9 @@ variable "subnets_cidr_blocks" {
 variable "ssh_public_key_location" {
   type    = string
   default = ""
+}
+
+variable "env" {
+  type    = string
+  default = "dev"
 }

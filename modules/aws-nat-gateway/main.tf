@@ -1,5 +1,5 @@
 resource "aws_eip" "nat-eip-1a" {
-   domain = "vpc"
+  domain = "vpc"
 }
 
 resource "aws_nat_gateway" "nat-gateway-1a" {
@@ -8,7 +8,7 @@ resource "aws_nat_gateway" "nat-gateway-1a" {
 }
 
 resource "aws_eip" "nat-eip-1b" {
-   domain = "vpc"
+  domain = "vpc"
 }
 
 resource "aws_nat_gateway" "nat-gateway-1b" {

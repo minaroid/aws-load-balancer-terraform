@@ -2,9 +2,9 @@
 resource "aws_route_table" "private-route-table-1a" {
   vpc_id = var.vpc_id
 
-   route {
+  route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = var.nat_gateways_ids[0]  
+    gateway_id = var.nat_gateways_ids[0]
   }
 
   tags = {
@@ -13,16 +13,16 @@ resource "aws_route_table" "private-route-table-1a" {
 }
 
 resource "aws_route_table_association" "private-subnets-1a-association" {
-  subnet_id      = var.private_subnets_ids[0] 
+  subnet_id      = var.private_subnets_ids[0]
   route_table_id = aws_route_table.private-route-table-1a.id
 }
 
 resource "aws_route_table" "private-route-table-1b" {
   vpc_id = var.vpc_id
 
-   route {
+  route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = var.nat_gateways_ids[1]  
+    gateway_id = var.nat_gateways_ids[1]
   }
 
   tags = {
@@ -31,7 +31,7 @@ resource "aws_route_table" "private-route-table-1b" {
 }
 
 resource "aws_route_table_association" "private-subnets-1b-association" {
-  subnet_id      = var.private_subnets_ids[1] 
+  subnet_id      = var.private_subnets_ids[1]
   route_table_id = aws_route_table.private-route-table-1b.id
 }
 
@@ -39,10 +39,10 @@ resource "aws_route_table_association" "private-subnets-1b-association" {
 // Public RT
 resource "aws_route_table" "public-route-table" {
   vpc_id = var.vpc_id
-  
-   route {
+
+  route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = var.igw_id  
+    gateway_id = var.igw_id
   }
 
   tags = {
@@ -52,6 +52,6 @@ resource "aws_route_table" "public-route-table" {
 
 resource "aws_route_table_association" "public-subnets-association" {
   count          = length(var.public_subnets_ids)
-  subnet_id      = var.public_subnets_ids[count.index] 
+  subnet_id      = var.public_subnets_ids[count.index]
   route_table_id = aws_route_table.public-route-table.id
 }

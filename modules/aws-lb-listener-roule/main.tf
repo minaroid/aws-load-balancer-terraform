@@ -13,5 +13,5 @@ resource "aws_lb_listener_rule" "app-alb-listener-rule" {
       ]
     }
   }
-  
+
 }

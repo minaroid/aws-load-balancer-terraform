@@ -3,10 +3,16 @@ variable "availability_zones" {
   default = []
 }
 
-variable "cidr_blocks" {
+variable "private_cidr_blocks" {
   type    = list(string)
   default = []
 }
+
+variable "public_cidr_blocks" {
+  type    = list(string)
+  default = []
+}
+
 
 variable "vpc_id" {
   description = "vpc id"
